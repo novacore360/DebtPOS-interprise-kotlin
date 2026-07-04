@@ -2,7 +2,7 @@ workflows:
   marnie-pos-android:
     name: Marnie Store POS (Android)
     max_build_duration: 60
-    instance_type: linux_x2
+    instance_type: linux
     environment:
       # marnie_pos_secrets (create this group in the Codemagic UI) should
       # define: CERT_PIN_SHA256 (optional; the backend's public key pin),
