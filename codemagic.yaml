@@ -4,8 +4,12 @@ workflows:
     max_build_duration: 60
     instance_type: linux_x2
     environment:
+      # marnie_pos_secrets (create this group in the Codemagic UI) should
+      # define: CERT_PIN_SHA256 (optional; the backend's public key pin),
+      # plus anything you template into gradle.properties. Never put NEON_*
+      # secrets here — those belong on the backend host, not the mobile app.
       groups:
-        - marnie_pos_secrets   # create this group in Codemagic UI (see docs/DEPLOY.md)
+        - marnie_pos_secrets
       vars:
         # Non-secret build-time config — override per branch/workflow if you
         # run staging vs production backends.
@@ -13,11 +17,6 @@ workflows:
         API_HOST: "api.yourdomain.com"
       android_signing:
         - marnie_pos_keystore   # upload your .jks under this reference in Codemagic
-      groups_note: >
-        marnie_pos_secrets should define: CERT_PIN_SHA256 (optional; the
-        backend's public key pin), plus anything you template into
-        gradle.properties. Never put NEON_* secrets here — those belong on
-        the backend host, not the mobile app.
     triggering:
       events:
         - push
@@ -50,7 +49,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com
+          - jamesbryllefahardo@gmail.com
         notify:
           success: true
           failure: true
