@@ -1,7 +1,0 @@
-<resources>
-    <style name="Theme.MarnieStorePOS" parent="android:Theme.Material.NoActionBar">
-        <item name="android:statusBarColor">#0f0f1a</item>
-        <item name="android:windowBackground">#0f0f1a</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-</resources>
